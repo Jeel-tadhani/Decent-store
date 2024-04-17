@@ -7,5 +7,7 @@ const userRoutes = express.Router();
 const Controller = new UserController();
 
 userRoutes.get("/get", authorizeRoles(), Controller.GetUser);
+userRoutes.post("/register", Controller.createUser);
+userRoutes.post("/login", Controller.loginUser);
 
 export default userRoutes;

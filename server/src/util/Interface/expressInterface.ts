@@ -9,6 +9,7 @@ export interface CustomRequest extends ExpressRequest {
         email: string,
         role: string
     },
+    password: string,
     user: any,
     tokenrole: string
 }

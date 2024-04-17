@@ -5,14 +5,16 @@ import { AppDataSource } from "./src/data-source"
 import MainRoutes from "./src/Routes/index";
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import cookieParser from 'cookie-parser';
 
 const app: Express = express();
 const port = process.env.PORT || 4000;
 
 // express config
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:3002' }));
 app.use(bodyParser.json())
 app.use(morgan('tiny'))
+app.use(cookieParser())
 
 // database connection 
 AppDataSource.initialize().then(async () => {
